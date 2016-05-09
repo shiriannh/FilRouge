@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ChateauDeCartes">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="ChateauDeCartes_EJB.jar" deploy-path="/" handle="module:/resource/ChateauDeCartes_EJB/ChateauDeCartes_EJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ChateauDeCartes_Web.war" deploy-path="/" handle="module:/resource/ChateauDeCartes_Web/ChateauDeCartes_Web">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="JpaCommonsTools.jar" deploy-path="/lib" handle="module:/resource/JpaCommonsTools/JpaCommonsTools">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="JsfCommonsTools.jar" deploy-path="/lib" handle="module:/resource/JsfCommonsTools/JsfCommonsTools">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

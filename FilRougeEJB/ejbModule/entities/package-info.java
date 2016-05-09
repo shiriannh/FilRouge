@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author jallet
- *
- */
-package entities;
