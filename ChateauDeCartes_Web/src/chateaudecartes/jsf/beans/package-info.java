@@ -5,4 +5,4 @@
  * @author jallet
  *
  */
-package beans;
+package chateaudecartes.jsf.beans;
