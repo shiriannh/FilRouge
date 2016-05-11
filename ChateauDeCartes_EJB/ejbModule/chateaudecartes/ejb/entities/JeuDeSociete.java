@@ -21,4 +21,5 @@ public class JeuDeSociete extends Jeu {
 	@Column
 	// True si le jeu est un jeu de plateau, false si c'est un jeu de carte.
 	boolean	plateauCarte;
+
 }

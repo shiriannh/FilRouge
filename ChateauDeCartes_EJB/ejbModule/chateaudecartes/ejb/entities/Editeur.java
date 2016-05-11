@@ -24,7 +24,7 @@ public class Editeur extends AbstractEntity {
 	String		nom;
 	@Column
 	Blob		logo;
-	@OneToMany
+	@OneToMany()
 	List<Jeu>	jeux;
 
 }
