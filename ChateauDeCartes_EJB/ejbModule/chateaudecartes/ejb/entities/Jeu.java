@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
@@ -32,5 +33,6 @@ public abstract class Jeu extends AbstractEntity {
 	String	description;
 	@Column
 	Blob	apercu;
-
+	@ManyToOne
+	Editeur	editeur;
 }
