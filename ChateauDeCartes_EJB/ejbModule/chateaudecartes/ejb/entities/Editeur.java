@@ -1,6 +1,5 @@
 package chateaudecartes.ejb.entities;
 
-import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,7 +22,7 @@ public class Editeur extends AbstractEntity {
 	@Column
 	String		nom;
 	@Column
-	Blob		logo;
+	String		logo;
 	@OneToMany()
 	List<Jeu>	jeux;
 
