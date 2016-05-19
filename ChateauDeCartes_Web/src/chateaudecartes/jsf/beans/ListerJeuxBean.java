@@ -1,0 +1,63 @@
+package chateaudecartes.jsf.beans;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import chateaudecartes.ejb.entities.Editeur;
+import chateaudecartes.ejb.entities.Jeu;
+import chateaudecartes.ejb.facades.FacadeEditeur;
+import lombok.Getter;
+import lombok.Setter;
+
+@Named
+@ViewScoped
+public class ListerJeuxBean implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	FacadeEditeur facadeEditeur;
+	
+	@Getter @Setter
+	List<Editeur> listeEditeur;
+	
+	@Getter @Setter
+	List<Jeu> listeJeux;
+	
+	@Getter @Setter
+	Editeur editeurSelect;
+	
+	@PostConstruct
+	private void init() {
+		chargerListeEditeur();
+
+	}
+
+	private void chargerListeEditeur() {
+		listeEditeur = facadeEditeur.readAll();
+	}
+	
+	public void chargerListeJeux() {
+		listeJeux = editeurSelect.getJeux();
+		System.out.println(editeurSelect.getNom());
+		System.out.println(editeurSelect.getJeux().size());
+		System.out.println(editeurSelect.getJeux().isEmpty());
+	}
+	
+	/**
+	 * Obtenir l'image correspondant à la marque
+	 * @param e l'Editeur du Jeu
+	 * @return le nom complet de l'image.
+	 */
+	public String image(Editeur e) {
+		return "img/"+e.getLogo();
+	}
+	
+	
+	
+}

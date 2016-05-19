@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Chateau de Cartes</title>
+</h:head>
+<body>
+
+	<h:form>
+
+		<h:selectOneMenu id="editeur" value="#{listerJeuxBean.editeurSelect}"
+			converter="#{genericConverter}">
+			<f:selectItems value="#{listerJeuxBean.listeEditeur}" var="editeur"
+				itemLabel="#{editeur.nom}" itemValue="#{editeur}">
+				
+			</f:selectItems>
+		</h:selectOneMenu>
+		
+		<p:commandButton value="TEST" actionListener="#{listerJeuxBean.chargerListeJeux()}"/>
+
+		<p:carousel value="#{listerJeuxBean.listeJeux}" var="j"
+			itemStyle="height:250px;text-align:center" numVisible="3"
+			easing="easeOutBounce" circular="true" autoPlayInterval="5000">>
+		
+			<h:panelGrid columns="2">
+				<p:outputLabel value="#{j.nom}"/>
+				
+			
+			</h:panelGrid>
+		
+		</p:carousel>
+
+
+	</h:form>
+
+
+</body>
+</html>

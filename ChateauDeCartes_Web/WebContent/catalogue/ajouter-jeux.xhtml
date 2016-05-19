@@ -1,0 +1,65 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:cha="http://java.sun.com/jsf/composite/cha">
+
+	<h:form id="form">
+
+		<h:outputText value="Type de Jeu" />
+		<h:selectOneMenu value="#{ajouterJeuBean.typeJeu}"
+			converter="#{genericConverter}">
+			<f:selectItem itemLabel="Choisir---" itemDisabled="true" />
+			<f:selectItems value="#{ajouterJeuBean.listeTypeJeu}" var="jeu"
+				itemValue="#{jeu}" />
+			<f:ajax execute="@this"
+				listener="#{ajouterJeuBean.afficherTypeJeu(ajouterJeuBean.typeJeu)}"
+				render="form:affichageJeu" />
+		</h:selectOneMenu>
+
+		<h:panelGroup id="affichageJeu">
+			<h:panelGrid rendered="#{ajouterJeuBean.afficherJeuRole}">
+				<h:outputText value="Affiché JDR !" />
+
+			</h:panelGrid>
+			<h:panelGrid rendered="#{ajouterJeuBean.afficherJeuSociete}">
+				<h:outputText value="Affiché JDS !" />
+
+			</h:panelGrid>
+
+		</h:panelGroup>
+
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Nom du Jeu:" for="inputNom" />
+			<h:inputText value="#{ajouterJeuBean.nomJeu}" id="inputNom"
+				required="true" />
+			<h:message for="inputNom" />
+
+			<h:outputLabel value="Editeur:" for="inputEditeur" />
+			<h:selectOneMenu id="inputEditeur" value="#{ajouterJeuBean.editeur}"
+				converter="#{genericConverter}" required="true">
+				<f:selectItems value="#{ajouterJeuBean.listeEditeur}" var="editeur"
+					itemLabel="#{editeur.nom}"  itemValue="#{editeur}"/>
+			</h:selectOneMenu>
+			<h:message for="inputEditeur" />
+
+			<h:outputLabel value="Date de Sortie:" for="inputDateSortie" />
+			<h:inputText id="inputDateSortie"
+				value="#{ajouterJeuBean.dateSortie}" required="true" converter="#{genericConverter}">
+				<f:validateRegex pattern="dd/MM/YYYY" />
+			</h:inputText>
+			<h:message for="inputDateSortie" />
+			
+			<h:outputLabel value="Description:" for="inputDescription" />
+			<h:inputText id="inputDescription"
+				value="#{ajouterJeuBean.description}" required="true" />
+			<h:message for="inputDescription" />
+
+		</h:panelGrid>
+
+		<p:commandButton value="Creer" actionListener="#{ajouterJeuBean.creerJeu()}" />
+
+	</h:form>
+
+</ui:composition>

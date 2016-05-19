@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<cc:interface>
+		<cc:attribute name="test" type="java.lang.String" default="Type de Jeu"></cc:attribute>
+		<cc:attribute name="listener" required="true" method-signature="void miseAJour()"></cc:attribute>
+		<cc:attribute name="render" type="java.lang.String" required="true"></cc:attribute>
+	</cc:interface>
+	<cc:implementation>
+		<h:outputText value="#{cc.attrs.test}" />
+		<h:selectOneMenu>
+			<f:selectItem itemLabel="Choisir---" noSelectionOption="true"/>
+			<f:selectItems value="#{ajouterJeuBean.listeTypeJeu}" var="jeu" itemValue="#{ajouterJeuBean.typeJeu}"/>
+			<f:ajax execute="@this" listener="#{cc.attrs.listener}"
+				render="#{cc.attrs.render}" />
+		</h:selectOneMenu>
+	</cc:implementation>
+</ui:component>
