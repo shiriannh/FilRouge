@@ -1,13 +1,15 @@
 @font-face{ 
 font-family: 'Moria';
-src: url("#{resource['font:MoriaCitadel.TTF']}");
+src: url("#{resource['font:RunyTunesRevisitedNF.otf']}");
 }
 
 header {
-    background-color:black;
-    color:white;
+	font-family: 'Moria';
+    background-image:url("#{resource['img:bg_texture.jpg']}"); 
+    color:black;
     text-align:center;
 	height:150px;
+	font-size:80px;
 	width:auto;
 }
 nav {
@@ -42,6 +44,7 @@ figure{
 }
 #section1{
 	font-family: 'Moria';
+	font-size:30px;
 	text-align:center;
    	background-image:url("#{resource['img:bg_texture.jpg']}"); 
     height: auto;
@@ -66,7 +69,7 @@ figure{
     width: 20%;
 }
 #nav1{
-	font-size: 15px;
+	font-size: 25px;
 	font-family: 'Moria';
     line-height:30px;
    	background-image:url("#{resource['img:bg_texture.jpg']}"); 
@@ -76,7 +79,7 @@ figure{
     padding:5px; 
 }
 #nav2{
-	font-size: 15px;
+	font-size: 25px;
 	font-family: 'Moria';
     line-height:30px;
     background-image:url("#{resource['img:bg_texture.jpg']}"); 
