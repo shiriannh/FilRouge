@@ -1,9 +1,13 @@
+@font-face{ 
+font-family: 'Moria';
+src: url("#{resource['font:MoriaCitadel.TTF']}");
+}
+
 header {
     background-color:black;
     color:white;
     text-align:center;
-    padding:5px; 
-	height:200px;
+	height:150px;
 	width:auto;
 }
 nav {
@@ -27,58 +31,66 @@ article{
     margin: 10px;
 }
 footer {
-    background-color:black;
+    background-image:url("#{resource['img:bg_texture.jpg']}"); 
     color:white;
     clear:both;
     text-align:center;
     padding:5px; 
 }
-img{
-    width: auto;
-    height: 150px;
-}
 figure{
     display: inline-block;
 }
 #section1{
-    background-color: lightgrey;
+	font-family: 'Moria';
+	text-align:center;
+   	background-image:url("#{resource['img:bg_texture.jpg']}"); 
     height: auto;
     width: 80%;
 }
 #section2{
+	font-family: 'Moria';
     background-color: lightblue;
-    height: 600px;
+    height: 700px;
     width: 40%;
 }
 #section3{
+	font-family: 'Moria';
     background-color: lightgreen;
-    height: 600px;
+    height: 700px;
     width: 20%;
 }
 #section4{
+	font-family: 'Moria';
     background-color: lightpink;
-    height: 600px;
+    height: 700px;
     width: 20%;
 }
 #nav1{
+	font-family: 'Moria';
     line-height:30px;
-    background-color:#eeeeee;
-    height:800px;
+   	background-image:url("#{resource['img:bg_texture.jpg']}"); 
+    height:850px;
     width:10%;
     float:left;
     padding:5px; 
 }
 #nav2{
+	font-family: 'Moria';
     line-height:30px;
-    background-color:#eeeeee;
-    height:800px;;
+    background-image:url("#{resource['img:bg_texture.jpg']}"); 
+    height:850px;;
     width:10%;
     float:right;
     padding:5px; 
 }
 .btnSubmit{
+	font-family: 'Moria';
     float: right;background-image: linear-gradient(to top right,grey,lightblue);
     border: 1px solid white;border-radius: 10px;
     width: auto;
     font-size: 15px;
+}
+.navMenu{
+	margin-bottom: 20px;
+	margin-top: 20px;
 }

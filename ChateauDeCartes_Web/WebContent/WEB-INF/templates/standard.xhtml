@@ -24,32 +24,41 @@
 <body>
 
 	<header>
-		<h:link outcome="accueil.xhtml" >
-			<h:graphicImage library="img" name="banner2.jpg" />
+		<h:link outcome="accueil.xhtml">
+			<h:graphicImage library="img" name="banner2.jpg" height="150" width="auto"/>
 		</h:link>
 	</header>
 
 	<nav id="nav1">
-		this is a nav
-		<br/> London
-		<br/> Paris
-		<br/> Tokyo 
+		<h1>Navigation</h1>
+		<br />
+		<h:link outcome="jeux-societes.xhtml"  >
+			<h:graphicImage library="img" name="perspective-dice-six-faces-three.png" height="40" width="40" class="navMenu"/>
+			Jeux de société
+		</h:link>
+		<br /> 
+		
+		<h:link outcome="jeux-roles.xhtml" >
+			<h:graphicImage library="img" name="dwarf-face.png" height="40" width="40" class="navMenu"/>
+			Jeux de rôles
+		</h:link>
+		<br /> 
+		<h:link outcome="reservation.xhtml" >
+			<h:graphicImage library="img" name="crossed-sabres.png" height="40" width="40" class="navMenu"/>
+			Réservation de jeux
+		</h:link>
 	</nav>
 	<nav id="nav2">
-		this is a nav
-		<br/> London
-		<br/> Paris
-		<br/> Tokyo 
+		this is a nav <br /> London <br /> Paris <br /> Tokyo
 	</nav>
 
 	<section id="section1">
-		<h1>London - Section 1</h1>
-		<p>London is the capital city of England. It is the most populous
-			city in the United Kingdom, with a metropolitan area of over 13
-			million inhabitants.</p>
-		<p>Standing on the River Thames, London has been a major
-			settlement for two millennia, its history going back to its founding
-			by the Romans, who named it Londinium.</p>
+		<h1>Bienvenue sur le site Chateau de cartes, 
+		votre fournisseur officiel de jeu sur Rennes !</h1>
+		<p>Après une bonne journée passée à coder comme des tarés à l'ETRS, venez vous détendre dans 
+		un lieu convivial avec des gens partageant vos centres d'interêts.</p>
+		<p>De 10hr jusqu'à ce que le patron soit fatigué, venez faire une partie de jeu de société, 
+		ou une séance de wargames histoire de passer ses nerfs sur autre chose que ses camarades !.</p>
 	</section>
 
 	<form method="get" action="" id="formResaRens"
@@ -59,44 +68,43 @@
 			<input type="radio" id="rens" value="Demande de renseignement"
 				onclick="radioButton('rens')">Radio button 1</input> <input
 				type="radio" id="resa" value="Demande de reservation"
-				onclick="radioButton('resa')">Radio button 2</input> <br/>
-			<br/>
+				onclick="radioButton('resa')">Radio button 2</input> <br /> <br />
 			<fieldset id="field">
 				<legend>Test legende </legend>
 				<div>
 					<label>test texte :</label><input style="margin-left: 8px;"
 						size="50" type="text"></input>
 				</div>
-				<br/>
+				<br />
 				<div>
 					<label>test texte :</label><input style="margin-left: 8px;"
 						size="50" type="text"></input>
 				</div>
-				<br/>
+				<br />
 				<div>
 					<label>test email :</label><input style="margin-left: 4px;"
 						size="50" type="email"></input>
 				</div>
-				<br/>
+				<br />
 				<div id="reserv">
-					<label>test textarea </label> <br/>
+					<label>test textarea </label> <br />
 					<textarea rows="3" COLS="50"></textarea>
 				</div>
 			</fieldset>
 		</section>
-		<br/>
+		<br />
 		<section id="section3">
 			<fieldset id="dateResa">
 				<legend> Un autre fieldset</legend>
 				<div>
 					<label>teste date debut :</label> <input style="margin-left: 15px;"
-						type="date" id="datedeb" placeholder="jj/mm/aaaa"></input> <br/>
+						type="date" id="datedeb" placeholder="jj/mm/aaaa"></input> <br />
 					<label>test date fin :</label> <input style="margin-left: 40px;"
 						placeholder="jj/mm/aaaa" id="datefin" type="date"
-						onchange="testDate()"></input> <br/>
+						onchange="testDate()"></input> <br />
 				</div>
 			</fieldset>
-			<br/>
+			<br />
 			<div style="float: right;" id="button">
 				<button type="reset" class="btnSubmit" onclick="">Réinitialiser</button>
 				<button type="submit" class="btnSubmit">Valider</button>
@@ -109,6 +117,6 @@
 		</section>
 	</form>
 
-			<footer> Copyright © W3Schools.com </footer>
+	<footer> Copyright © W3Schools.com </footer>
 </body>
 </html>
