@@ -41,6 +41,11 @@
 							var="editeur" itemLabel="#{editeur.nom}" itemValue="#{editeur}" />
 					</h:selectOneMenu>
 					<h:message for="inputEditeur" />
+					
+					<h:outputLabel value="Aperçu : " for="inputApercu" />
+					<h:inputText id="inputApercu" value="#{ajouterJeuBean.apercu}"
+						required="true" />
+					<h:message for="inputApercu" />
 
 					<h:outputLabel value="Date de Sortie : " for="inputDateSortie" />
 					<h:inputText id="inputDateSortie"

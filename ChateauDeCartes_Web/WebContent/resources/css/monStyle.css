@@ -134,7 +134,7 @@ figure {
 	}
 .editeur{
 	padding: auto;
-	width: 100%;
+	width: 50%;
 	height: auto;
 }
 .table{
@@ -143,4 +143,14 @@ figure {
 	font-size: 20px;
 	height: auto;
 	width: 70%;
+}
+.galeria{
+	width: 80%;
+	height: auto;
+	margin-left: 50%;
+}
+.gallery{
+	width:100% !important;
+	height:100%;
+	margin-left:-20px ;
 }

@@ -4,6 +4,17 @@
 	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/WEB-INF/templates/standard.xhtml"
-		xmlns:gs="http://java.sun.com/jsf/composite/gs">
+	xmlns:gs="http://java.sun.com/jsf/composite/gs">
 
+	<ui:define name="section2">
+
+		<p:galleria styleClass="gallery" value="#{ listerJeuxGaleriaBean.listeJeu}" var="image"
+			showCaption="true">
+			<p:graphicImage styleClass="galeria" library="img"
+				name="#{image.apercu}" rendered="#{not empty image.apercu}"
+				title="#{image.nom}" />
+		</p:galleria>
+
+
+	</ui:define>
 </ui:composition>

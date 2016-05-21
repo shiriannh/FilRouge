@@ -46,6 +46,7 @@ public class ListerJeuxBean implements Serializable {
 
 	private void chargerListeEditeur() {
 		listeEditeur = facadeEditeur.readAll();
+
 	}
 
 	public void chargerListeJeux() {

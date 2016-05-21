@@ -156,6 +156,7 @@ public class AjouterJeuBean implements Serializable {
 			jeuDeRole.setDescription(description);
 			jeuDeRole.setSysteme(systeme);
 			jeuDeRole.setType(type);
+			jeuDeRole.setApercu(apercu);
 			facadeJeuRole.create(jeuDeRole);
 			JsfUtils.sendMessage("Jeu %s ajouté", jeuDeRole.getNom());
 		} else {
@@ -166,6 +167,7 @@ public class AjouterJeuBean implements Serializable {
 			jeuDeSociete.setDescription(description);
 			jeuDeSociete.setNbrDeJoueurs(nbrJoueurs);
 			jeuDeSociete.setPlateauCarte(typeJeuCartePlateau);
+			jeuDeSociete.setApercu(apercu);
 			facadeJeuDeSociete.create(jeuDeSociete);
 			JsfUtils.sendMessage("Jeu %s ajouté", jeuDeSociete.getNom());
 		}

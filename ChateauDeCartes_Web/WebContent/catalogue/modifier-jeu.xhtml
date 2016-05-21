@@ -7,9 +7,9 @@
 	xmlns:gs="http://java.sun.com/jsf/composite/gs">
 
 	<ui:define name="section2">
-	<h:panelGroup id="affichageJeu">
-		<h:panelGrid rendered="#{modifierJeux.jdr != null}" columns="3">
-			<h:form id="form1">
+		<h:panelGroup id="affichageJeu">
+			<h:panelGrid rendered="#{modifierJeux.jdr != null}" columns="3">
+				<h:form id="form1">
 					<h:outputLabel value="Nom du Jeu : " for="inputNom" />
 					<h:inputText value="#{modifierJeux.jdr.nom}" id="inputNom"
 						required="true" />
@@ -42,6 +42,11 @@
 						required="true" />
 					<h:message for="inputSysteme" />
 
+					<h:outputLabel value="Aperçu : " for="inputApercu" />
+					<h:inputText id="inputApercu" value="#{modifierJeux.jdr.apercu}"
+						required="true" />
+					<h:message for="inputApercu" />
+
 					<p:outputLabel value="Genre" for="inputGenre" />
 					<p:selectOneMenu id="inputGenre" value="#{modifierJeux.jdr.type}"
 						converter="#{TypeConverter}" required="true">
@@ -51,64 +56,69 @@
 					</p:selectOneMenu>
 					<p:message for="inputGenre" />
 
-				<h:commandButton
-					actionListener="#{modifierJeux.modifierJeu(modifierJeux.jdr)}"
-					value="enregistrer" />
-			</h:form>
-		</h:panelGrid>
-		
-		
-		<h:panelGrid rendered="#{modifierJeux.jds != null}" columns="3">
-			<h:form id="form2">
-				<h:outputLabel value="Nom du Jeu : " for="inputNom" />
-				<h:inputText value="#{modifierJeux.jds.nom}" id="inputNom"
-					required="true" />
-				<h:message for="inputNom" />
-
-				<h:outputLabel value="Editeur : " for="inputEditeur" />
-				<h:selectOneMenu id="inputEditeur"
-					value="#{modifierJeux.jds.editeur}" converter="#{genericConverter}"
-					required="true">
-					<f:selectItems value="#{ajouterJeuBean.listeEditeur}" var="editeur"
-						itemLabel="#{editeur.nom}" itemValue="#{editeur}" />
-				</h:selectOneMenu>
-				<h:message for="inputEditeur" />
-
-				<h:outputLabel value="Date de Sortie : " for="inputDateSortie" />
-				<h:inputText id="inputDateSortie"
-					value="#{modifierJeux.jds.dateSortie}" required="true"
-					converter="#{genericConverter}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:inputText>
-				<h:message for="inputDateSortie" />
-
-				<h:outputLabel value="Description : " for="inputDescription" />
-				<h:inputText id="inputDescription"
-					value="#{modifierJeux.jds.description}" required="true" />
-				<h:message for="inputDescription" />
-
-				<h:outputLabel value="Nombre de joueurs maximum : "
-					for="inputNbrJoueurs" />
-				<h:inputText id="inputNbrJoueurs"
-					value="#{modifierJeux.jds.nbrDeJoueurs}" required="true" />
-				<h:message for="inputNbrJoueurs" />
-
-				<h:outputLabel value="Type de jeu : " for="inputType" />
-				<h:selectOneRadio value="#{modifierJeux.jds.plateauCarte}"
-					id="inputType">
-					<f:selectItem itemValue="#{true}" itemLabel="Jeu de carte" />
-					<f:selectItem itemValue="#{false}" itemLabel="Jeu de plateau" />
-				</h:selectOneRadio>
-				<h:message for="inputType" />
-
-				<h:commandButton
-					actionListener="#{modifierJeux.modifierJeu(modifierJeux.jds)}"
-					value="enregistrer" />
-			</h:form>
-		</h:panelGrid>
+					<h:commandButton
+						actionListener="#{modifierJeux.modifierJeu(modifierJeux.jdr)}"
+						value="enregistrer" />
+				</h:form>
+			</h:panelGrid>
 
 
-		<p:growl id="growl" autoUpdate="true" globalOnly="true" />
+			<h:panelGrid rendered="#{modifierJeux.jds != null}" columns="3">
+				<h:form id="form2">
+					<h:outputLabel value="Nom du Jeu : " for="inputNom" />
+					<h:inputText value="#{modifierJeux.jds.nom}" id="inputNom"
+						required="true" />
+					<h:message for="inputNom" />
+					<br />
+					<h:outputLabel value="Editeur : " for="inputEditeur" />
+					<h:selectOneMenu id="inputEditeur"
+						value="#{modifierJeux.jds.editeur}"
+						converter="#{genericConverter}" required="true">
+						<f:selectItems value="#{ajouterJeuBean.listeEditeur}"
+							var="editeur" itemLabel="#{editeur.nom}" itemValue="#{editeur}" />
+					</h:selectOneMenu>
+					<h:message for="inputEditeur" />
+					<br />
+					<h:outputLabel value="Date de Sortie : " for="inputDateSortie" />
+					<h:inputText id="inputDateSortie"
+						value="#{modifierJeux.jds.dateSortie}" required="true"
+						converter="#{genericConverter}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:inputText>
+					<h:message for="inputDateSortie" />
+					<br />
+					<h:outputLabel value="Description : " for="inputDescription" />
+					<h:inputText id="inputDescription"
+						value="#{modifierJeux.jds.description}" required="true" />
+					<h:message for="inputDescription" />
+					<br />
+					<h:outputLabel value="Aperçu : " for="inputApercu" />
+					<h:inputText id="inputApercu" value="#{modifierJeux.jdr.apercu}"
+						required="true" />
+					<h:message for="inputApercu" />
+					<br />
+					<h:outputLabel value="Nombre de joueurs maximum : "
+						for="inputNbrJoueurs" />
+					<h:inputText id="inputNbrJoueurs"
+						value="#{modifierJeux.jds.nbrDeJoueurs}" required="true" />
+					<h:message for="inputNbrJoueurs" />
+					<br />
+					<h:outputLabel value="Type de jeu : " for="inputType" />
+					<h:selectOneRadio value="#{modifierJeux.jds.plateauCarte}"
+						id="inputType">
+						<f:selectItem itemValue="#{true}" itemLabel="Jeu de carte" />
+						<f:selectItem itemValue="#{false}" itemLabel="Jeu de plateau" />
+					</h:selectOneRadio>
+					<h:message for="inputType" />
+					<br />
+					<h:commandButton
+						actionListener="#{modifierJeux.modifierJeu(modifierJeux.jds)}"
+						value="enregistrer" />
+				</h:form>
+			</h:panelGrid>
+
+
+			<p:growl id="growl" autoUpdate="true" globalOnly="true" />
 		</h:panelGroup>
 	</ui:define>
 </ui:composition>
