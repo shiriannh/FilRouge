@@ -1,101 +1,146 @@
-@font-face{ 
-font-family: 'Moria';
-src: url("#{resource['font:RunyTunesRevisitedNF.otf']}");
+@font-face {
+	font-family: 'Moria';
+	src: url("#{resource['font:RunyTunesRevisitedNF.otf']}");
 }
 
 header {
 	font-family: 'Moria';
-    background-image:url("#{resource['img:bg_texture.jpg']}"); 
-    color:black;
-    text-align:center;
-	height:150px;
-	font-size:80px;
-	width:auto;
+	background-image: url("#{resource['img:bg_texture.jpg']}");
+	color: black;
+	text-align: center;
+	height: 150px;
+	font-size: 80px;
+	width: auto;
 }
+
 nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:1043px;
-    width:100px;
-    float:left;
-    padding:5px; 
+	line-height: 30px;
+	background-color: #eeeeee;
+	height: 1043px;
+	width: 100px;
+	float: left;
+	padding: 5px;
 }
+
 section {
-    width:350px;
-    float:left;
-    padding:10px; 
+	width: 350px;
+	float: left;
+	padding: 10px;
 }
-article{
-    width:200px;
-    border: 1px white solid;
-    padding:10px;
-    background-color: grey;
-    margin: 10px;
+
+article {
+	width: 200px;
+	border: 1px white solid;
+	padding: 10px;
+	background-color: grey;
+	margin: 10px;
 }
+
 footer {
-    background-image:url("#{resource['img:bg_texture.jpg']}"); 
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px; 
+	background-image: url("#{resource['img:bg_texture.jpg']}");
+	color: white;
+	clear: both;
+	text-align: center;
+	padding: 5px;
 }
-figure{
-    display: inline-block;
+
+figure {
+	display: inline-block;
 }
-#section1{
+
+#section1 {
 	font-family: 'Moria';
-	font-size:30px;
-	text-align:center;
-   	background-image:url("#{resource['img:bg_texture.jpg']}"); 
-    height: auto;
-    width: 70%;
+	font-size: 30px;
+	text-align: center;
+	background-image: url("#{resource['img:bg_texture.jpg']}");
+	height: auto;
+	width: 70%;
 }
-#section2{
+
+#section2 {
 	font-family: 'Moria';
-    background-color: lightblue;
-    height: 700px;
-    width: 35%;
+	background-color: lightgrey;
+	font-size: 20px;
+	min-height: 611px;
+	height:auto;
+	width: 70%;
+	padding-left:50px;
+	padding-top:20px;
+	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.52);
 }
-#section3{
+
+#section3 {
 	font-family: 'Moria';
-    background-color: lightgreen;
-    height: 700px;
-    width: 15%;
+	background-color: lightgreen;
+	height: 700px;
+	width: 15%;
 }
-#section4{
+
+#section4 {
 	font-family: 'Moria';
-    background-color: lightpink;
-    height: 700px;
-    width: 20%;
+	background-color: lightpink;
+	height: 700px;
+	width: 20%;
 }
-#nav1{
+
+#nav1Inside {
+	padding-top: 15px;
+	padding-left: 25px;
 	font-size: 25px;
 	font-family: 'Moria';
-    line-height:30px;
-   	background-image:url("#{resource['img:bg_texture.jpg']}"); 
-    height:850px;
-    width:15%;
-    float:left;
-    padding:5px; 
+	line-height: 30px;
 }
-#nav2{
+
+#nav2Inside {
+	padding-top: 15px;
+	padding-left: 25px;
 	font-size: 25px;
 	font-family: 'Moria';
-    line-height:30px;
-    background-image:url("#{resource['img:bg_texture.jpg']}"); 
-    height:850px;;
-    width:15%;
-    float:right;
-    padding:5px; 
+	line-height: 30px;
 }
-.btnSubmit{
+
+.btnSubmit {
 	font-family: 'Moria';
-    float: right;background-image: linear-gradient(to top right,grey,lightblue);
-    border: 1px solid white;border-radius: 10px;
-    width: auto;
-    font-size: 15px;
+	float: right;
+	background-image: linear-gradient(to top right, grey, lightblue);
+	border: 1px solid white;
+	border-radius: 10px;
+	width: auto;
+	font-size: 15px;
 }
-.navMenu{
+
+.navMenu {
 	margin-bottom: 20px;
 	margin-top: 20px;
+}
+
+#nav1 {
+	background-image: url("#{resource['img:bg_texture.jpg']}");
+	min-height:850px;
+	height: auto;
+	width: 15%;
+	float: left;
+}
+
+#nav2 {
+	background-image: url("#{resource['img:bg_texture.jpg']}");
+	min-height:850px;
+	height: auto;
+	width: 15%;
+	float: right;
+}
+.imgTete{
+	margin-left: 20px;
+	}
+.editeur{
+	padding: auto;
+	width: 100%;
+	height: auto;
+}
+.table{
+	font-family: 'Moria';
+	background-color: lightgrey;
+	font-size: 20px;
+	height: auto;
+	width: 70%;
 }

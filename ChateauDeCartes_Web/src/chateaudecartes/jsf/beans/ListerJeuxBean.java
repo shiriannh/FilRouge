@@ -16,22 +16,25 @@ import lombok.Setter;
 
 @Named
 @ViewScoped
-public class ListerJeuxBean implements Serializable{
+public class ListerJeuxBean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long	serialVersionUID	= 1L;
+
 	@Inject
-	FacadeEditeur facadeEditeur;
-	
-	@Getter @Setter
-	List<Editeur> listeEditeur;
-	
-	@Getter @Setter
-	List<Jeu> listeJeux;
-	
-	@Getter @Setter
-	Editeur editeurSelect;
-	
+	FacadeEditeur				facadeEditeur;
+
+	@Getter
+	@Setter
+	List<Editeur>				listeEditeur;
+
+	@Getter
+	@Setter
+	List<Jeu>					listeJeux;
+
+	@Getter
+	@Setter
+	Editeur						editeurSelect;
+
 	@PostConstruct
 	private void init() {
 		chargerListeEditeur();
@@ -41,23 +44,24 @@ public class ListerJeuxBean implements Serializable{
 	private void chargerListeEditeur() {
 		listeEditeur = facadeEditeur.readAll();
 	}
-	
+
 	public void chargerListeJeux() {
-		listeJeux = editeurSelect.getJeux();
 		System.out.println(editeurSelect.getNom());
 		System.out.println(editeurSelect.getJeux().size());
 		System.out.println(editeurSelect.getJeux().isEmpty());
+		listeJeux = facadeEditeur.listeJeuxParEditeur(editeurSelect);
+
 	}
-	
+
 	/**
 	 * Obtenir l'image correspondant à la marque
-	 * @param e l'Editeur du Jeu
+	 * 
+	 * @param e
+	 *            l'Editeur du Jeu
 	 * @return le nom complet de l'image.
 	 */
 	public String image(Editeur e) {
-		return "img/"+e.getLogo();
+		return e.getLogo();
 	}
-	
-	
-	
+
 }

@@ -2,7 +2,6 @@ package chateaudecartes.ejb.entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -33,6 +32,6 @@ public abstract class Jeu extends AbstractEntity {
 	String	description;
 	@Column
 	String	apercu;
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	Editeur	editeur;
 }

@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import chateaudecartes.ejb.entities.Editeur;
 import chateaudecartes.ejb.entities.JeuDeRole;
 import chateaudecartes.ejb.entities.JeuDeSociete;
+import chateaudecartes.ejb.entities.Type;
 import chateaudecartes.ejb.facades.FacadeEditeur;
 import chateaudecartes.ejb.facades.FacadeJeuDeRole;
 import chateaudecartes.ejb.facades.FacadeJeuDeSociete;
@@ -125,7 +126,7 @@ public class InitSingleton {
 
 					jeu.setSysteme(valeur[6]);
 					;
-					jeu.setGenre(valeur[7]);
+					jeu.setType(Type.valueOf(valeur[7]));
 					;
 
 					jeu.setEditeur(editeur);

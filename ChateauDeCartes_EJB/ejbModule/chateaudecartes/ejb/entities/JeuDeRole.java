@@ -2,6 +2,8 @@ package chateaudecartes.ejb.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -19,6 +21,7 @@ public class JeuDeRole extends Jeu {
 	@Column
 	String	systeme;
 	@Column
-	String	genre;
+	@Enumerated(EnumType.STRING)
+	Type	type;
 
 }

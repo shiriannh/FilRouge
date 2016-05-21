@@ -1,10 +1,14 @@
 package chateaudecartes.ejb.facades;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import chateaudecartes.ejb.entities.Editeur;
+import chateaudecartes.ejb.entities.Jeu;
 import net.entetrs.commons.jpa.AbstractDaoEntrepriseEdition;
 
 @Stateless
@@ -22,6 +26,15 @@ public class FacadeEditeur extends AbstractDaoEntrepriseEdition<Editeur> {
 	public EntityManager getEntityManager() {
 
 		return em;
+	}
+
+	public List<Jeu> listeJeuxParEditeur(Editeur e) {
+
+		Query jpqlQuery = em.createQuery("Select j from Jeu j where j.editeur = :editeur");
+		jpqlQuery.setParameter("editeur", e);
+		List<Jeu> results = jpqlQuery.getResultList();
+
+		return results;
 	}
 
 }

@@ -23,45 +23,85 @@
 
 <body>
 
-	<header id="TitrePrincipal">
-			CHATEAU DE CARTES
-	</header>
+	<header id="TitrePrincipal"> CHATEAU DE CARTES </header>
 
 	<nav id="nav1">
-		<h2>Navigation</h2>
-		<br />
-		<h:link outcome="jeux-societes.xhtml"  >
-			<h:graphicImage library="img" name="perspective-dice-six-faces-three.png" height="40" width="40" class="navMenu"/>
+		<h:graphicImage library="img" name="ace.png" height="230" width="230"
+			class="imgTete" />
+		<div id="nav1Inside">
+			<h2>Navigation</h2>
+			<br />
+
+			<h:link outcome="/accueil.xhtml">
+				<h:graphicImage library="img" name="all-seeing-eye.png" height="40"
+					width="40" class="navMenu" />
+			Accueil
+		</h:link>
+			<br />
+			<h:link outcome="jeux-societes.xhtml">
+				<h:graphicImage library="img"
+					name="perspective-dice-six-faces-three.png" height="40" width="40"
+					class="navMenu" />
 			Jeux de societe
 		</h:link>
-		<br /> 
-		
-		<h:link outcome="jeux-roles.xhtml" >
-			<h:graphicImage library="img" name="dwarf-face.png" height="40" width="40" class="navMenu"/>
+			<br />
+
+			<h:link outcome="jeux-roles.xhtml">
+				<h:graphicImage library="img" name="dwarf-face.png" height="40"
+					width="40" class="navMenu" />
 			Jeux de roles
 		</h:link>
-		<br /> 
-		<h:link outcome="reservation.xhtml" >
-			<h:graphicImage library="img" name="crossed-sabres.png" height="40" width="40" class="navMenu"/>
+			<br />
+			<h:link outcome="reservation.xhtml">
+				<h:graphicImage library="img" name="crossed-sabres.png" height="40"
+					width="40" class="navMenu" />
 			Reservation de jeux
 		</h:link>
+		</div>
 	</nav>
+
 	<nav id="nav2">
-		this is a nav <br /> London <br /> Paris <br /> Tokyo
+		<h:graphicImage library="img" name="triforce.png" height="230"
+			width="230" class="imgTete" />
+		<div id="nav2Inside">
+			<h2>Coin Admin</h2>
+			<br />
+			<h:link outcome="/catalogue/ajouter-jeux.xhtml">
+				<h:graphicImage library="img" name="barbarian.png" height="40"
+					width="40" class="navMenu" value="Ajout" />
+				Ajout de jeu
+		</h:link>
+			<br />
+			<h:link outcome="/catalogue/lister-jeux.xhtml">
+				<h:graphicImage library="img" name="daggers.png" height="40"
+					width="40" class="navMenu"  />
+				Liste des jeux
+		</h:link>
+		</div>
 	</nav>
 
 	<section id="section1">
-		<h1>Bienvenue sur le site Chateau de cartes, 
-		votre fournisseur officiel de jeu sur Rennes !</h1>
-		<p>Après une bonne journée passée à coder comme des tarés à l'ETRS, venez vous détendre dans 
-		un lieu convivial avec des gens partageant vos centres d'interêts.</p>
-		<p>De 10hr jusqu'à ce que le patron soit fatigué, venez faire une partie de jeu de société, 
-		ou une séance de wargames histoire de passer ses nerfs sur autre chose que ses camarades !.</p>
+		<h1>Bienvenue sur le site Chateau de cartes, votre fournisseur
+			officiel de jeu sur Rennes !</h1>
+		<p>Après une bonne journée passée à coder comme des tarés à
+			l'ETRS, venez vous détendre dans un lieu convivial avec des gens
+			partageant vos centres d'interêts.</p>
+		<p>De 10hr jusqu'à ce que le patron soit fatigué, venez faire une
+			partie de jeu de société, ou une séance de wargames histoire de
+			passer ses nerfs sur autre chose que ses camarades !.</p>
 	</section>
 
-	<form method="get" action="" id="formResaRens"
+	<p:growl autoUpdate="true"></p:growl>
+
+	<section id="section2" class="container">
+		<ui:insert name="section2">
+		</ui:insert>
+	</section>
+	<!--  
+			<form method="get" action="" id="formResaRens"
 		onsubmit="return confirmer();">
 		<section id="section2">
+			
 			<h1>Formulaire - Section 2</h1>
 			<input type="radio" id="rens" value="Demande de renseignement"
 				onclick="radioButton('rens')">Radio button 1</input> <input
@@ -113,8 +153,8 @@
 			<article>article 2</article>
 			<article>article 3</article>
 		</section>
-	</form>
+	</form>-->
 
-	<footer> Copyright © W3Schools.com </footer>
+	<footer> Copyright © SCH Potaczala / SM Jallet </footer>
 </body>
 </html>

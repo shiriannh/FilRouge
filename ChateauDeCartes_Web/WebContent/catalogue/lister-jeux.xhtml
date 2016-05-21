@@ -1,42 +1,46 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	template="/WEB-INF/templates/standard.xhtml"
+	xmlns:gs="http://java.sun.com/jsf/composite/gs">
 
-<h:head>
-	<title>Chateau de Cartes</title>
-</h:head>
-<body>
+	<ui:define name="section2">
 
-	<h:form>
+		<h:form>
 
-		<h:selectOneMenu id="editeur" value="#{listerJeuxBean.editeurSelect}"
-			converter="#{genericConverter}">
-			<f:selectItems value="#{listerJeuxBean.listeEditeur}" var="editeur"
-				itemLabel="#{editeur.nom}" itemValue="#{editeur}">
-				
-			</f:selectItems>
-		</h:selectOneMenu>
-		
-		<p:commandButton value="TEST" actionListener="#{listerJeuxBean.chargerListeJeux()}"/>
+			<p:selectOneMenu id="editeur" value="#{listerJeuxBean.editeurSelect}"
+				converter="#{genericConverter}">
+				<f:selectItems value="#{listerJeuxBean.listeEditeur}" var="editeur"
+					itemLabel="#{editeur.nom}" itemValue="#{editeur}">
+				</f:selectItems>
+				<f:ajax execute="@form" listener="#{listerJeuxBean.chargerListeJeux()}" render="table"/>
+			</p:selectOneMenu>
 
-		<p:carousel value="#{listerJeuxBean.listeJeux}" var="j"
-			itemStyle="height:250px;text-align:center" numVisible="3"
-			easing="easeOutBounce" circular="true" autoPlayInterval="5000">>
-		
-			<h:panelGrid columns="2">
-				<p:outputLabel value="#{j.nom}"/>
-				
-			
-			</h:panelGrid>
-		
-		</p:carousel>
+			<p:dataTable styleClass="table" id="table" var="jeux" value="#{listerJeuxBean.listeJeux}" rows="4" scrollable="true" scrollHeight="450">
+				<p:column headerText="Nom">
+					<h:outputText value="#{jeux.nom}" />
+				</p:column>
+
+				<p:column headerText="Editeur">
+				<h:graphicImage library="img" name="#{listerJeuxBean.image(jeux.editeur)}" class="editeur" />
+				</p:column>
+
+				<p:column headerText="Date de sortie">
+					<h:outputText value="#{jeux.dateSortie}" >
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Description">
+					<h:outputText value="#{jeux.description}" />
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
 
 
-	</h:form>
+	</ui:define>
 
-
-</body>
-</html>
+</ui:composition>
