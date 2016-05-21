@@ -20,7 +20,7 @@
 
 			<p:dataTable styleClass="table" id="table" var="jeux" value="#{listerJeuxBean.listeJeux}" rows="4" scrollable="true" scrollHeight="450">
 				<p:column headerText="Nom">
-					<h:outputText value="#{jeux.nom}" />
+						<h:commandLink action="modifier-jeu.xhtml" actionListener="#{listerJeuxBean.selectionnerJeu(jeux)}" value="#{jeux.nom}" immediate="true" />
 				</p:column>
 
 				<p:column headerText="Editeur">

@@ -10,9 +10,12 @@ import javax.inject.Named;
 
 import chateaudecartes.ejb.entities.Editeur;
 import chateaudecartes.ejb.entities.Jeu;
+import chateaudecartes.ejb.entities.JeuDeRole;
+import chateaudecartes.ejb.entities.JeuDeSociete;
 import chateaudecartes.ejb.facades.FacadeEditeur;
 import lombok.Getter;
 import lombok.Setter;
+import net.entetrs.commons.jsf.JsfUtils;
 
 @Named
 @ViewScoped
@@ -62,6 +65,16 @@ public class ListerJeuxBean implements Serializable {
 	 */
 	public String image(Editeur e) {
 		return e.getLogo();
+	}
+
+	public void selectionnerJeu(Object jeu) {
+		if (jeu instanceof JeuDeRole) {
+			JsfUtils.putInFlashScope("jdr", jeu);
+		}
+		if (jeu instanceof JeuDeSociete) {
+			JsfUtils.putInFlashScope("jds", jeu);
+		}
+
 	}
 
 }
