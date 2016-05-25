@@ -3,6 +3,7 @@
 	<name>ChateauDeCartes_Web</name>
 	<comment></comment>
 	<projects>
+		<project>MyMusicConsole</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import chateaudecartes.ejb.entities.Editeur;
 import chateaudecartes.ejb.entities.Jeu;
@@ -29,11 +29,13 @@ public class FacadeEditeur extends AbstractDaoEntrepriseEdition<Editeur> {
 	}
 
 	public List<Jeu> listeJeuxParEditeur(Editeur e) {
-
-		Query jpqlQuery = em.createQuery("Select j from Jeu j where j.editeur = :editeur");
+		
+		
+		TypedQuery<Jeu> jpqlQuery = em.createQuery("Select j from Jeu j where j.editeur = :editeur",Jeu.class);
 		jpqlQuery.setParameter("editeur", e);
 		List<Jeu> results = jpqlQuery.getResultList();
-
+		
+		
 		return results;
 	}
 

@@ -1,0 +1,73 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/standard.xhtml"
+	xmlns:gs="http://java.sun.com/jsf/composite/gs">
+
+	<ui:define name="section2">
+
+		<h:form>
+			<p:wizard nextLabel="Suivant" backLabel="Précedent">
+
+				<p:tab id="compte" title="Compte">
+					<p:panel header="Détail du Compte">
+						<p:messages />
+						<h:panelGrid columns="3">
+							<h:outputText value="Login: *" />
+							<p:inputText id="inputLogin"
+								value="" required="true" />
+							<p:messages for="inputLogin" />
+
+							<h:outputText value="Mot de Passe: *" />
+							<p:inputText id="inputMDP"
+								value="" required="true" />
+							<p:messages for="inputMDP" />
+
+							<h:outputText value="Email: *" />
+							<p:inputText id="inputEmail"
+								value="" required="true" />
+							<p:messages for="inputEmail" />
+
+						</h:panelGrid>
+					</p:panel>
+
+					<p:tab id="personnel" title="Information Personnel">
+						<p:panel header="Personnel">
+
+							<h:panelGrid columns="3">
+								<h:outputText value="Nom: *" for="inputNom" />
+								<p:inputText id="inputNom" value="" required="true" label="Nom" />
+								<p:messages for="inputNom" />
+
+								<h:outputText value="Prénom: *" />
+								<p:inputText id="inputPrenom" value="" required="true"
+									label="Prénom" />
+								<p:messages for="inputPrenom" />
+
+								<h:outputText value="Adresse: *" />
+								<p:inputText id="inputAdresse" value="" required="true" />
+								<p:messages for="inputAdresse" />
+
+								<h:outputText value="Code Postale: *" />
+								<p:inputText id="inputCodePostale" value="" required="true" />
+								<p:messages for="inputCodePostale" />
+
+								<h:outputText value="Ville: *" />
+								<p:inputText id="inputVille" value="" required="true" />
+								<p:messages for="inputVille" />
+							</h:panelGrid>
+						</p:panel>
+						
+						<p:commandButton value="Créer"
+						action="/index.xhtml" update="growl"
+						process="@form" />
+					</p:tab>
+			</p:wizard>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

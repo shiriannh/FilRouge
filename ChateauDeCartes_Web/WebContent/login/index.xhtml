@@ -1,0 +1,50 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/login.xhtml"
+	xmlns:gs="http://java.sun.com/jsf/composite/gs">
+
+
+	<ui:define name="section2">
+
+		<h:form >
+
+			<h:panelGrid columns="3">
+
+				<h:outputLabel value="Compte" for="j_username" />
+				<h:inputText id="j_username" required="true"
+					requiredMessage="Obligatoire" />
+				<h:message for="j_username" errorClass="error-class"
+					showDetail="false" showSummary="true" />
+
+
+				<h:outputLabel value="Mot de passe" for="j_password" />
+				<h:inputSecret id="j_password" required="true"
+					requiredMessage="Obligatoire" />
+				<h:message for="j_password" errorClass="error-class" />
+
+			</h:panelGrid>
+
+			<h:messages globalOnly="true" errorClass="error-class"
+				fatalClass="fatal-class" warnClass="warning-class"
+				infoClass="info-class" />
+
+			<h:panelGrid columns="2" style=" margin : auto">
+
+				<h:commandButton id="btnConnecter" value="Se connecter"
+					styleClass="commons-icon connect"
+					actionListener="#{loginBean.connexion()}" />
+
+				<h:commandButton id="btnAnnuler" value="Annuler"
+					styleClass="commons-icon cancel"
+					action="/index.xhtml?faces-redirect=true" immediate="true" />
+
+			</h:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
