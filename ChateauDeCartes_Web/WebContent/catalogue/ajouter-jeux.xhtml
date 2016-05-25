@@ -7,108 +7,117 @@
 	xmlns:gs="http://java.sun.com/jsf/composite/gs">
 
 	<ui:define name="section2">
-	<div class="container">
-		<h:form id="form">
+		<div class="container">
+			<h:form id="form">
 
-			<h:panelGroup id="affichageJeu">
-				<h1 >Ajout d'un jeu</h1>
-				<br/>
-				<br/>
-				<h:panelGrid columns="3">
-				
-					<h:outputLabel value="Type de Jeu : "  for="typeJeu"/>
-					<h:selectOneMenu value="#{ajouterJeuBean.typeJeu}"
-						converter="#{genericConverter}" id="typeJeu">
-						<f:selectItem itemLabel="Choisir---" itemDisabled="true" />
-						<f:selectItems value="#{ajouterJeuBean.listeTypeJeu}" var="jeu"
-							itemValue="#{jeu}" />
-						<f:ajax execute="@this"
-							listener="#{ajouterJeuBean.afficherTypeJeu(ajouterJeuBean.typeJeu)}"
-							render="form:affichageJeu" />
-					</h:selectOneMenu>
-					<h:message for="typeJeu" />
-				
-					<h:outputLabel value="Nom du Jeu : " for="inputNom" />
-					<h:inputText value="#{ajouterJeuBean.nomJeu}" id="inputNom"
-						required="true" />
-					<h:message for="inputNom" />
+				<h:panelGroup id="affichageJeu">
+					<h1>Ajout d'un jeu</h1>
+					<br />
+					<br />
+					<h:panelGrid columns="3">
 
-					<h:outputLabel value="Editeur : " for="inputEditeur" />
-					<h:selectOneMenu id="inputEditeur"
-						value="#{ajouterJeuBean.editeur}"
-						converter="#{genericConverter}" required="true">
-						<f:selectItems value="#{ajouterJeuBean.listeEditeur}"
-							var="editeur" itemLabel="#{editeur.nom}" itemValue="#{editeur}" />
-					</h:selectOneMenu>
-					<h:message for="inputEditeur" />
-					
-					<h:outputLabel value="Aperçu : " for="inputApercu" />
-					<h:inputText id="inputApercu" value="#{ajouterJeuBean.apercu}"
-						required="true" />
-					<h:message for="inputApercu" />
+						<h:outputLabel value="Type de Jeu : " for="typeJeu" />
+						<h:selectOneMenu value="#{ajouterJeuBean.typeJeu}"
+							converter="#{genericConverter}" id="typeJeu">
+							<f:selectItem itemLabel="Choisir---" itemDisabled="true" />
+							<f:selectItems value="#{ajouterJeuBean.listeTypeJeu}" var="jeu"
+								itemValue="#{jeu}" />
+							<f:ajax execute="@this"
+								listener="#{ajouterJeuBean.afficherTypeJeu(ajouterJeuBean.typeJeu)}"
+								render="form:affichageJeu" />
+						</h:selectOneMenu>
+						<h:message for="typeJeu" />
 
-					<h:outputLabel value="Date de Sortie : " for="inputDateSortie" />
-					<h:inputText id="inputDateSortie"
-						value="#{ajouterJeuBean.dateSortie}" required="true"
-						converter="#{genericConverter}">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</h:inputText>
-					<h:message for="inputDateSortie" />
+						<h:outputLabel value="Nom du Jeu : " for="inputNom" />
+						<h:inputText value="#{ajouterJeuBean.nomJeu}" id="inputNom"
+							required="true" />
+						<h:message for="inputNom" />
 
-					<h:outputLabel value="Description : " for="inputDescription" />
-					<h:inputText id="inputDescription"
-						value="#{ajouterJeuBean.description}" required="true" />
-					<h:message for="inputDescription" />
+						<h:outputLabel value="Editeur : " for="inputEditeur" />
+						<h:selectOneMenu id="inputEditeur"
+							value="#{ajouterJeuBean.editeur}" converter="#{genericConverter}"
+							required="true">
+							<f:selectItems value="#{ajouterJeuBean.listeEditeur}"
+								var="editeur" itemLabel="#{editeur.nom}" itemValue="#{editeur}" />
+						</h:selectOneMenu>
+						<h:message for="inputEditeur" />
 
-				</h:panelGrid>
+						<h:outputLabel value="Aperçu : " for="inputApercu" />
+						<h:inputText id="inputApercu" value="#{ajouterJeuBean.apercu}"
+							required="true" />
+						<h:message for="inputApercu" />
 
-				<h:panelGrid rendered="#{ajouterJeuBean.afficherJeuRole}">
+						<h:outputLabel value="Date de Sortie : " for="inputDateSortie" />
+						<h:inputText id="inputDateSortie"
+							value="#{ajouterJeuBean.dateSortie}" required="true"
+							converter="#{genericConverter}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:inputText>
+						<h:message for="inputDateSortie" />
 
-					<h:outputLabel value="Système : " for="inputSysteme" />
-					<h:inputText id="inputSysteme"
-						value="#{ajouterJeuBean.systeme}" required="true" />
-					<h:message for="inputSysteme" />
-					
-					<p:outputLabel value="Genre" for="inputGenre" />
-							<p:selectOneMenu id="inputGenre" value="#{ajouterJeuBean.type}" converter="#{TypeConverter}" required="true">
-								<f:selectItem noSelectionOption="true" itemLabel="Choisir" itemDisabled="true"/>
-								<f:selectItems value="#{ajouterJeuBean.listeType}" />
-							</p:selectOneMenu>
-					<p:message for="inputGenre" />
-					
-					<!-- <h:outputLabel value="Genre : " for="inputGenre" />
+						<h:outputLabel value="Description : " for="inputDescription" />
+						<h:inputText id="inputDescription"
+							value="#{ajouterJeuBean.description}" required="true" />
+						<h:message for="inputDescription" />
+
+						<h:outputLabel value="Image : " for="inputImage" />
+						<p:fileUpload value="#{ajouterJeuBean.file}" mode="simple"
+							skinSimple="true" />
+						<h:message for="inputImage" />
+
+					</h:panelGrid>
+
+					<h:panelGrid rendered="#{ajouterJeuBean.afficherJeuRole}">
+
+						<h:outputLabel value="Système : " for="inputSysteme" />
+						<h:inputText id="inputSysteme" value="#{ajouterJeuBean.systeme}"
+							required="true" />
+						<h:message for="inputSysteme" />
+
+						<p:outputLabel value="Genre" for="inputGenre" />
+						<p:selectOneMenu id="inputGenre" value="#{ajouterJeuBean.type}"
+							converter="#{TypeConverter}" required="true">
+							<f:selectItem noSelectionOption="true" itemLabel="Choisir"
+								itemDisabled="true" />
+							<f:selectItems value="#{ajouterJeuBean.listeType}" />
+						</p:selectOneMenu>
+						<p:message for="inputGenre" />
+
+						<!-- <h:outputLabel value="Genre : " for="inputGenre" />
 					<h:inputText id="inputGenre"
 						value="#{ajouterJeuBean.type}" required="true" />
 					<h:message for="inputGenre" />
 					<h:outputText value="Affiché JDR !" />
 					 -->
-					 
-				</h:panelGrid>
-				<h:panelGrid rendered="#{ajouterJeuBean.afficherJeuSociete}">
-					<h:outputLabel value="Nombre de joueurs maximum : " for="inputNbrJoueurs" />
-					<h:inputText id="inputNbrJoueurs"
-						value="#{ajouterJeuBean.nbrJoueurs}" required="true" />
-					<h:message for="inputNbrJoueurs" />
-					 
-					<h:outputLabel value="Type de jeu : " for="inputType" />
-					<h:selectOneRadio value="#{ajouterJeuBean.typeJeuCartePlateau}" id="inputType">
-					    <f:selectItem itemValue="#{true}" itemLabel="Jeu de carte" />
-					    <f:selectItem itemValue="#{false}" itemLabel="Jeu de plateau" />
-					</h:selectOneRadio>
-					<h:message for="inputType" />
-				
-					<h:outputText value="Affiché JDS !" />
 
-				</h:panelGrid>
+					</h:panelGrid>
+					<h:panelGrid rendered="#{ajouterJeuBean.afficherJeuSociete}">
+						<h:outputLabel value="Nombre de joueurs maximum : "
+							for="inputNbrJoueurs" />
+						<h:inputText id="inputNbrJoueurs"
+							value="#{ajouterJeuBean.nbrJoueurs}" required="true" />
+						<h:message for="inputNbrJoueurs" />
 
-			</h:panelGroup>
+						<h:outputLabel value="Type de jeu : " for="inputType" />
+						<h:selectOneRadio value="#{ajouterJeuBean.typeJeuCartePlateau}"
+							id="inputType">
+							<f:selectItem itemValue="#{true}" itemLabel="Jeu de carte" />
+							<f:selectItem itemValue="#{false}" itemLabel="Jeu de plateau" />
+						</h:selectOneRadio>
+						<h:message for="inputType" />
+
+						<h:outputText value="Affiché JDS !" />
+
+					</h:panelGrid>
+
+				</h:panelGroup>
 
 
 
-			<p:commandButton value="Creer" action="#{ajouterJeuBean.creerJeu()}" />
+				<p:commandButton value="Creer" action="#{ajouterJeuBean.creerJeu()}" />
 
-		</h:form>
-	</div>
+			</h:form>
+		</div>
 
 
 	</ui:define>

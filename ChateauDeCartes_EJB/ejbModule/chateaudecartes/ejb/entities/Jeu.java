@@ -1,13 +1,17 @@
 package chateaudecartes.ejb.entities;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -25,13 +29,16 @@ import lombok.experimental.FieldDefaults;
 public abstract class Jeu extends AbstractEntity {
 
 	@Column
-	String	nom;
+	String			nom;
 	@Column
-	Date	dateSortie;
+	Date			dateSortie;
 	@Column(length = 900)
-	String	description;
+	String			description;
 	@Column
-	String	apercu;
-	@ManyToOne
-	Editeur	editeur;
+	String			apercu;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn
+	Editeur			editeur;
+	@OneToMany
+	List<Ressource>	rsc;
 }

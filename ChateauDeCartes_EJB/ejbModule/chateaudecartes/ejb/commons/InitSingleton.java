@@ -3,6 +3,8 @@ package chateaudecartes.ejb.commons;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
@@ -15,6 +17,7 @@ import javax.inject.Inject;
 import chateaudecartes.ejb.entities.Editeur;
 import chateaudecartes.ejb.entities.JeuDeRole;
 import chateaudecartes.ejb.entities.JeuDeSociete;
+import chateaudecartes.ejb.entities.Ressource;
 import chateaudecartes.ejb.entities.Type;
 import chateaudecartes.ejb.facades.FacadeEditeur;
 import chateaudecartes.ejb.facades.FacadeJeuDeRole;
@@ -38,6 +41,7 @@ public class InitSingleton {
 
 	@PostConstruct
 	public void chargerBDDSociete() {
+		List<Ressource> liste = new ArrayList<Ressource>();
 
 		try {
 			Properties properties = new Properties();
@@ -66,7 +70,6 @@ public class InitSingleton {
 					}
 					jeu.setDescription(valeur[2]);
 					jeu.setApercu(valeur[3]);
-
 					if (facadeEditeur.exists("nom", valeur[5])) {
 						editeur = facadeEditeur.searchFirstResult("nom", valeur[5]);
 						System.out.println("Existe !");
@@ -80,7 +83,7 @@ public class InitSingleton {
 					jeu.setPlateauCarte(type);
 
 					jeu.setEditeur(editeur);
-
+					jeu.setRsc(liste);
 					facadeSociete.create(jeu);
 
 					System.out.println("Creation OK");
@@ -130,7 +133,7 @@ public class InitSingleton {
 					;
 
 					jeu.setEditeur(editeur);
-
+					jeu.setRsc(liste);
 					facadeRole.create(jeu);
 
 					System.out.println("Creation OK");
