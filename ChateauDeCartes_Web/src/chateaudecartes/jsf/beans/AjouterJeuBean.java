@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -163,8 +165,6 @@ public class AjouterJeuBean implements Serializable {
 			jeuDeRole.setType(type);
 			jeuDeRole.setApercu(apercu);
 			facadeJeuRole.create(jeuDeRole);
-			// facadeJeuRole.ajouterRessources(file.getFileName(),
-			// file.getContents(), jeuDeRole);
 			JsfUtils.sendMessage("Jeu %s ajouté", jeuDeRole.getNom());
 		} else {
 			jeuDeSociete = facadeJeuDeSociete.newInstance();
@@ -176,10 +176,24 @@ public class AjouterJeuBean implements Serializable {
 			jeuDeSociete.setPlateauCarte(typeJeuCartePlateau);
 			jeuDeSociete.setApercu(apercu);
 			facadeJeuDeSociete.create(jeuDeSociete);
-			// facadeJeuDeSociete.ajouterRessources(file.getFileName(),
-			// file.getContents(), jeuDeSociete);
 			JsfUtils.sendMessage("Jeu %s ajouté", jeuDeSociete.getNom());
 		}
+		upload();
 	}
 
+	public void upload() {
+
+		if (file != null) {
+			JsfUtils.sendMessage(FacesMessage.SEVERITY_INFO, "File");
+			if (typeJeu.equals(TypeJeu.JEU_DE_ROLE)) {
+				facadeJeuRole.ajouterRessources(file.getFileName(), file.getContents(), jeuDeRole);
+			} else {
+				facadeJeuDeSociete.ajouterRessources(file.getFileName(), file.getContents(), jeuDeSociete);
+			}
+			FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		} else {
+			JsfUtils.sendMessage(FacesMessage.SEVERITY_INFO, "BOOM");
+		}
+	}
 }

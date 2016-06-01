@@ -1,11 +1,15 @@
 @font-face {
 	font-family: 'Moria';
+	src: url("#{resource['font:Beta54.ttf']}");
+}
+
+@font-face {
+	font-family: 'Title';
 	src: url("#{resource['font:RunyTunesRevisitedNF.otf']}");
 }
 
 header {
-	font-family: 'Moria';
-	background-image: url("#{resource['img:bg_texture.jpg']}");
+	font-family: 'Title';
 	color: black;
 	text-align: center;
 	height: 150px;
@@ -62,10 +66,10 @@ figure {
 	background-color: lightgrey;
 	font-size: 20px;
 	min-height: 611px;
-	height:auto;
+	height: auto;
 	width: 70%;
-	padding-left:50px;
-	padding-top:20px;
+	padding-left: 50px;
+	padding-top: 20px;
 	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.52);
 }
 
@@ -116,7 +120,7 @@ figure {
 
 #nav1 {
 	background-image: url("#{resource['img:bg_texture.jpg']}");
-	min-height:850px;
+	min-height: 850px;
 	height: auto;
 	width: 15%;
 	float: left;
@@ -124,33 +128,43 @@ figure {
 
 #nav2 {
 	background-image: url("#{resource['img:bg_texture.jpg']}");
-	min-height:850px;
+	min-height: 850px;
 	height: auto;
 	width: 15%;
 	float: right;
 }
-.imgTete{
+
+.imgTete {
 	margin-left: 20px;
-	}
-.editeur{
+}
+
+.editeur {
 	padding: auto;
 	width: 50%;
 	height: auto;
 }
-.table{
+
+.table {
 	font-family: 'Moria';
 	background-color: lightgrey;
 	font-size: 20px;
 	height: auto;
 	width: 70%;
 }
-.galeria{
+
+.galeria {
 	width: 80%;
 	height: auto;
 	margin-left: 50%;
 }
-.gallery{
-	width:100% !important;
-	height:100%;
-	margin-left:-20px ;
+
+.gallery {
+	width: 100% !important;
+	height: 100%;
+	margin-left: -20px;
+}
+
+#TitrePrincipal {
+	background-image: url("#{resource['img:banner.jpg']}");
+	background-size: 100% 100%;
 }

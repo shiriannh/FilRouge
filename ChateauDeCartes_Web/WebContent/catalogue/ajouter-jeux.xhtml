@@ -61,8 +61,9 @@
 						<h:message for="inputDescription" />
 
 						<h:outputLabel value="Image : " for="inputImage" />
-						<p:fileUpload value="#{ajouterJeuBean.file}" mode="simple"
-							skinSimple="true" />
+						<p:fileUpload id="inputImage" value="#{ajouterJeuBean.file}" mode="advanced"
+							skinSimple="true"  oncomplete="#{ajouterJeuBean.upload()}">
+							</p:fileUpload>
 						<h:message for="inputImage" />
 
 					</h:panelGrid>
