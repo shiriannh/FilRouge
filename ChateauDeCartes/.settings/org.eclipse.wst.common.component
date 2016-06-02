@@ -15,5 +15,9 @@
         <dependent-module archiveName="JsfCommonsTools.jar" deploy-path="/lib" handle="module:/resource/JsfCommonsTools/JsfCommonsTools">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ChateauDeCartes_WS.jar" deploy-path="/" handle="module:/resource/ChateauDeCartes_WS/ChateauDeCartes_WS">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

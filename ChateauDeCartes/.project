@@ -7,6 +7,7 @@
 		<project>ChateauDeCartes_Web</project>
 		<project>JpaCommonsTools</project>
 		<project>JsfCommonsTools</project>
+		<project>ChateauDeCartes_WS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
